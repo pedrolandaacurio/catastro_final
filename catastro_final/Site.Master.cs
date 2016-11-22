@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity;
 
 namespace catastro_final
 {
+
     public partial class SiteMaster : MasterPage
     {
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";

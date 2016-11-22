@@ -13,6 +13,14 @@ namespace catastro_final.Models
     // Para agregar datos del usuario, agregue más propiedades a su clase de usuario. Visite http://go.microsoft.com/fwlink/?LinkID=317594 para obtener más información.
     public class ApplicationUser : IdentityUser
     {
+        //Columnas Personalizadas de Usuarios
+
+        public string Names { get; set; }
+
+        public string ApePat { get; set; }
+
+        public string ApeMat { get; set; }
+
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
         {
             // Tenga en cuenta que authenticationType debe coincidir con el valor definido en CookieAuthenticationOptions.AuthenticationType
