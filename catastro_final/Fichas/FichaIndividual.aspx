@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FichaIndividual.aspx.cs" Inherits="catastro_final.Fichas.FichaIndividual" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="Cuc" DataSourceID="SqlDataSource1" DefaultMode="Insert" CssClass="form-horizontal">
+
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="Cuc" DataSourceID="SqlDataSource1" DefaultMode="Insert" CssClass="form-horizontal" >
         <EditItemTemplate>
             Id:
             <asp:TextBox Text='<%# Bind("Id") %>' runat="server" ID="IdTextBox" /><br />
@@ -43,44 +44,34 @@
             <asp:LinkButton runat="server" Text="Actualizar" CommandName="Update" ID="UpdateButton" CausesValidation="True" />&nbsp;<asp:LinkButton runat="server" Text="Cancelar" CommandName="Cancel" ID="UpdateCancelButton" CausesValidation="False" />
         </EditItemTemplate>
         <InsertItemTemplate>
-            Id:
-            <asp:TextBox Text='<%# Bind("Id") %>' runat="server" ID="IdTextBox" /><br />
-            UserName:
-            <asp:TextBox Text='<%# Bind("UserName") %>' runat="server" ID="UserNameTextBox" /><br />
-            NumFicha:
-            <asp:TextBox Text='<%# Bind("NumFicha") %>' runat="server" ID="NumFichaTextBox" /><br />
-            FichasPorLote:
-            <asp:TextBox Text='<%# Bind("FichasPorLote") %>' runat="server" ID="FichasPorLoteTextBox" /><br />
-            MaxFichasPorLote:
-            <asp:TextBox Text='<%# Bind("MaxFichasPorLote") %>' runat="server" ID="MaxFichasPorLoteTextBox" /><br />
-            Cuc:
-            <asp:TextBox Text='<%# Bind("Cuc") %>' runat="server" ID="CucTextBox" /><br />
-            Chc:
-            <asp:TextBox Text='<%# Bind("Chc") %>' runat="server" ID="ChcTextBox" /><br />
-            Ubigeo:
-            <asp:TextBox Text='<%# Bind("Ubigeo") %>' runat="server" ID="UbigeoTextBox" value="150120" /><br />
-            Sector:
-            <asp:TextBox Text='<%# Bind("Sector") %>' runat="server" ID="SectorTextBox" /><br />
-            Manzana:
-            <asp:TextBox Text='<%# Bind("Manzana") %>' runat="server" ID="ManzanaTextBox" /><br />
-            Lote:
-            <asp:TextBox Text='<%# Bind("Lote") %>' runat="server" ID="LoteTextBox" /><br />
-            Edifica:
-            <asp:TextBox Text='<%# Bind("Edifica") %>' runat="server" ID="EdificaTextBox" /><br />
-            Entrada:
-            <asp:TextBox Text='<%# Bind("Entrada") %>' runat="server" ID="EntradaTextBox" /><br />
-            Piso:
-            <asp:TextBox Text='<%# Bind("Piso") %>' runat="server" ID="PisoTextBox" /><br />
-            Unidad:
-            <asp:TextBox Text='<%# Bind("Unidad") %>' runat="server" ID="UnidadTextBox" /><br />
-            DC:
-            <asp:TextBox Text='<%# Bind("DC") %>' runat="server" ID="DCTextBox" /><br />
-            CodContribuyente:
-            <asp:TextBox Text='<%# Bind("CodContribuyente") %>' runat="server" ID="CodContribuyenteTextBox" /><br />
-            CodPredial:
-            <asp:TextBox Text='<%# Bind("CodPredial") %>' runat="server" ID="CodPredialTextBox" /><br />
-            UnidadAcumulada:
-            <asp:TextBox Text='<%# Bind("UnidadAcumulada") %>' runat="server" ID="UnidadAcumuladaTextBox" /><br />
+            <!--Ocultas-->
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("Id") %>' runat="server" ID="IdTextBox" visible="false"/>
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("UserName") %>' runat="server" ID="UserNameTextBox" ReadOnly="True" visible="false" />
+            
+            <div class="form-group">
+                <asp:Label runat="server" AssociatedControlID="NumFichaTextBox" CssClass="col-md-2 control-label">Nº de Ficha</asp:Label>
+                <div class="col-md-4">
+                    <asp:TextBox CssClass="form-control" Text='<%# Bind("NumFicha") %>' runat="server" ID="NumFichaTextBox" />
+                </div>
+            </div>                    
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("FichasPorLote") %>' runat="server" ID="FichasPorLoteTextBox" />
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("MaxFichasPorLote") %>' runat="server" ID="MaxFichasPorLoteTextBox" />
+
+            
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("Cuc") %>' runat="server" ID="CucTextBox" />
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("Chc") %>' runat="server" ID="ChcTextBox" />
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("Ubigeo") %>' runat="server" ID="UbigeoTextBox" value="150120" ReadOnly="True" />
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("Sector") %>' runat="server" ID="SectorTextBox" />
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("Manzana") %>' runat="server" ID="ManzanaTextBox" />
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("Lote") %>' runat="server" ID="LoteTextBox" />
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("Edifica") %>' runat="server" ID="EdificaTextBox" />
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("Entrada") %>' runat="server" ID="EntradaTextBox" />
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("Piso") %>' runat="server" ID="PisoTextBox" />
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("Unidad") %>' runat="server" ID="UnidadTextBox" />
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("DC") %>' runat="server" ID="DCTextBox" />
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("CodContribuyente") %>' runat="server" ID="CodContribuyenteTextBox" />
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("CodPredial") %>' runat="server" ID="CodPredialTextBox" />
+            <asp:TextBox CssClass="form-control" Text='<%# Bind("UnidadAcumulada") %>' runat="server" ID="UnidadAcumuladaTextBox" />
             <asp:LinkButton runat="server" Text="Insertar" CommandName="Insert" ID="InsertButton" CausesValidation="True" />&nbsp;<asp:LinkButton runat="server" Text="Cancelar" CommandName="Cancel" ID="InsertCancelButton" CausesValidation="False" />
         </InsertItemTemplate>
         <ItemTemplate>

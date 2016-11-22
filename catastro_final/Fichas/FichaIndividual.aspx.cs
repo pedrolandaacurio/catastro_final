@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace catastro_final.Fichas
 {
+
     public partial class FichaIndividual : System.Web.UI.Page
     {
 
@@ -16,5 +17,7 @@ namespace catastro_final.Fichas
         {
 
         }
+
     }
+    
 }
