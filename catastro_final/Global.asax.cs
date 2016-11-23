@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -17,6 +18,9 @@ namespace catastro_final
     {
         void Application_Start(object sender, EventArgs e)
         {
+            //Haciendo el drop en el Initializer para código en repo
+            Database.SetInitializer<Models.ApplicationDbContext>(null);
+
             // Código que se ejecuta al iniciar la aplicación
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
